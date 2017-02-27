@@ -23,7 +23,7 @@ class PivotalClient(object):
         if method is 'POST' or 'PUT':
             headers = {'Content-Type' : 'application/json' }
 
-        r = requests.request(method, url, auth=self.auth, headers=headers, params=params, json=data)
+        r = requests.request(method, url, auth=self.auth, headers=headers, params=params, data=data)
         if r.status_code != 200:
             print 'Error performing ' + method + ' to ' + url + ', got status code: ' + str(r.status_code) + '\n'
             raise IOError(r.reason)
